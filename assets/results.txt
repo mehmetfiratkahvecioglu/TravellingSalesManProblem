@@ -1,0 +1,4 @@
+tsp_5_1 :
+En kısa yol: 0-1-2-3-4-0
+Uzunluk: 3
+
