@@ -3,8 +3,12 @@ const fs = require("fs");
 //dosyaların isimleri için string olutşur 10. satırda ki ${tsp_5} gibi sadece simi değiştirerek kullanabilirsiniz...
 const tsp_5 = "tsp_5_1.txt";
 const tsp_124 = "tsp_124_1.txt";
+const tsp_85900 = "tsp_85900_1.txt";
+const tsp_1000 = "tsp_1000_1.txt";
+const tsp_5915 = "tsp_5915_1.txt";
+const tsp_11849 = "tsp_11849_1.txt";
 // Dosyadan koordinatları okuyup diziye aktar
-const fileData = fs.readFileSync(`./${tsp_124}`, "utf8").split("\n");
+const fileData = fs.readFileSync(`./${tsp_11849}`, "utf8").split("\n");
 const n = parseInt(fileData[0]);
 const coords = [];
 for (let i = 1; i < fileData.length; i++) {
@@ -63,11 +67,9 @@ console.log(`En kısa yol: ${JSON.stringify(tour)}`);
 
 const yol = tour;
 
-uzunluk = 0;
-for (let i = 0; i < yol.length - 1; i++) {
-  let [x1, y1] = yol[i];
-  let [x2, y2] = yol[i + 1];
-  let d = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;
-  uzunluk += d;
-}
-console.log(uzunluk);
+const filePath = "./result11849.txt";
+
+fs.writeFile(filePath, JSON.stringify(tour), (err) => {
+  if (err) throw err;
+  console.log("Dizi başarıyla dosyaya yazıldı.");
+});
