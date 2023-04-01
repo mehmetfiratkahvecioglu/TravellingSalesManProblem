@@ -3,16 +3,18 @@
 //İlk olarak dosyadan koordinatları okuyup bir diziye aktaralım:
 
 const fs = require("fs");
-
+//dosyaların isimleri için string olutşur 10. satırda ki ${tsp_5} gibi sadece simi değiştirerek kullanabilirsiniz...
+const tsp_5 = "tsp_5_1.txt";
+const tsp_124 = "tsp_124_1.txt";
 // Dosyadan koordinatları okuyup diziye aktar
-const fileData = fs.readFileSync("./tsp_5_1.txt", "utf8").split("\n");
+const fileData = fs.readFileSync(`./${tsp_5}`, "utf8").split("\n");
 const n = parseInt(fileData[0]);
 const coords = [];
 for (let i = 1; i < fileData.length; i++) {
   const [x, y] = fileData[i].split(" ").map(parseFloat);
   coords.push([x, y]);
 }
-
+console.log(coords);
 //Daha sonra tüm yol kombinasyonlarını hesaplamak için bir permute fonksiyonu oluşturalım:
 // Tüm olası yol kombinasyonlarını hesapla
 function permute(permutation) {
